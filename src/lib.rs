@@ -1,4 +1,5 @@
 #![warn(rust_2018_idioms, clippy::pedantic)]
+#![allow(clippy::must_use_candidate)]
 
 const fn fourcc_impl<const IS_LITTLE: bool>(four: &str) -> u32 {
     assert!(four.len() == 4, "FourCC must be 4 ASCII characters");
@@ -45,7 +46,7 @@ where
     Bytes: AsRef<[u8]>,
 {
     let bytes = four.as_ref();
-    bytes.len() == 4 && bytes.iter().all(|b| b.is_ascii())
+    bytes.len() == 4 && bytes.iter().all(u8::is_ascii)
 }
 
 #[cfg(test)]
