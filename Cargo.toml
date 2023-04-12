@@ -1,4 +1,4 @@
 [package]
-name = "furcc"
+name = "facc"
 version = "0.1.0"
 edition = "2021"
